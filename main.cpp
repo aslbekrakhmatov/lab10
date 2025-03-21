@@ -30,8 +30,6 @@ int indexOfLargestElement(double numbers[], int size) {
     }
 }
 
-bool strictlyEqual(const int list1[], const int list2[], int size);
-
 bool strictlyEqual(const int list1[], const int list2[], int size) {
     // Iterate through each element in both arrays
     for (int i = 0; i < size; i++) {
@@ -40,6 +38,62 @@ bool strictlyEqual(const int list1[], const int list2[], int size) {
         }
     }
     return true;  // Return true if all elements are identical
+}
+
+string count_frq(char characters[], int size) {
+    int freq[26] = {0}
+
+    for (int i =0; i < size; i++) {
+      if (characters[i]>a && characters[i]<z) {
+          freq[characters[i] - 'a']++;
+      }
+      else if(characters[i]=='0') {
+        cout << "Process finished" << endl;
+        break;
+      }
+    }
+    cout <<"Frequency of letters:"<<endl;
+    for (int i = 0; i < 26; i++) {
+        if (freq[i] > 0)
+            cout<<char('a'+i)<<":"<<freq[i]<<endl;
+    }
+}
+
+void sort_arr(int numbers[], int size) {
+  for (int i = 0; i < size-1; i++) {
+      int min_index = i;
+      for (int j = i+1; j < size; j++) {
+          if (min > numbers[j]) {
+              min_index = j;
+          }
+      }
+      swap(numbers[i], numbers[min_index]);
+  }
+  for (int i = 0; i < size; i++) {
+    cout << numbers[i] << " ";
+  }
+}
+void reverseArray(int arr[], int start, int end){
+    while(start < end)
+      swap(arr[start], arr[end]);
+    start++;
+    end--;
+}
+void printArray(int arr[], int size) {
+  for (int i = 0; i < size; i++) {
+    cout << arr[i] << " ";
+  }
+}
+
+void sorted_checker(int numbers[], int size){
+    bool num_check = true;
+    for (int i = 0; i < size-1; i++) {
+        if (numbers[i] > numbers[i+1]) {
+          num_check = false;
+          break;
+        }
+    }
+    if(num_check) cout << "YES" << endl; else cout << "NO" << endl;
 }
 int main() {
     //p1
@@ -96,45 +150,68 @@ int main() {
     // cout << "Index Largest Value: "<<indexOfLargestElement(numbers, size);
 
     //p5
+//    int size;
 
-        int size;
+//    cout << "Enter the size of the lists: ";
+//    cin >> size;
+//
+//    int list1[size], list2[size];
+//
+//    cout << "Enter elements for the first list: " << endl;
+//    for (int i = 0; i < size; i++) {
+//        cin >> list1[i];
+//    }
 
-        cout << "Enter the size of the lists: ";
-        cin >> size;
+//    cout << "Enter elements for the second list: " << endl;
+//    for (int i = 0; i < size; i++) {
+//        cin >> list2[i];
+//    }
 
-        int list1[size], list2[size];
+//    if (strictlyEqual(list1, list2, size)) {
+//        cout << "The two lists are strictly identical." << endl;
+//    } else {
+//        cout << "The two lists are not strictly identical." << endl;
+//    }
+//p6
+//    char input[1000];
+//    cout << "Enter characters (terminate with '0'):" << endl;
+//    cin.getline(input, 1000);
+//    count_freq(input, 1000);
 
-        cout << "Enter elements for the first list: " << endl;
-        for (int i = 0; i < size; i++) {
-            cin >> list1[i];
-        }
+//p7
+//    int size;
+//    cout << "Enter the size of the array: ";
+//    cin >> size;
+//    int numbers[size];
+//    cout<<"Enter "<< size << " numbers: ";
+//    for (int i = 0; i < size; i++) {
+//      cin >> numbers[i];
+//    }
+//    sort_arr(numbers, size);
 
-        // Input values for the second list
-        cout << "Enter elements for the second list: " << endl;
-        for (int i = 0; i < size; i++) {
-            cin >> list2[i];
-        }
+//p9
+//    int size;
+//    cout << "Enter the size of the array: ";
+//    cin >> size;
+//    int numbers[size];
+//    for (int i = 0; i < size; i++) {
+//        cin>>numbers[i];
+//    }
+//    reverseArray(numbers, 0, size-1);
+//    cout<<"Reversed array: "<< printArray(numbers, size) << endl;
 
-
-        if (strictlyEqual(list1, list2, size)) {
-            cout << "The two lists are strictly identical." << endl;
-        } else {
-            cout << "The two lists are not strictly identical." << endl;
-        }
-
-        return 0;
+//p10
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+    int numbers[size];
+    for (int i = 0; i < size; i++) {
+        cin>>numbers[i];
     }
-
-
-
+    sorted_checker(numbers, size);
 
 
 
 
     return 0;
 }
-
-// TIP See CLion help at <a
-// href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
-//  Also, you can try interactive lessons for CLion by selecting
-//  'Help | Learn IDE Features' from the main menu.
